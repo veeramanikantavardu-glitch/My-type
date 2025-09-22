@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        .dashboard {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card {
+            background-color: #f7f7f7;
+            border: 1px solid #ddd;
+            margin: 1em;
+            padding: 1em;
+            width: 200px;
+        }
+        .card h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Computer Dashboard</h1>
+    </div>
+    <div class="dashboard">
+        <div class="card">
+            <h2>CPU Usage</h2>
+            <p id="cpu-usage">Loading...</p>
+        </div>
+        <div class="card">
+            <h2>Memory Usage</h2>
+            <p id="memory-usage">Loading...</p>
+        </div>
+        <div class="card">
+            <h2>Disk Space</h2>
+            <p id="disk-space">Loading...</p>
+        </div>
+    </div>
+
+    <script>
+        // Sample data for demonstration purposes
+        const cpuUsageData = 50;
+        const memoryUsageData = 70;
+        const diskSpaceData = {
+            used: 200,
+            total: 500
+        };
+
+        // Update dashboard with sample data
+        document.getElementById("cpu-usage").innerText = `CPU Usage: ${cpuUsageData}%`;
+        document.getElementById("memory-usage").innerText = `Memory Usage: ${memoryUsageData}%`;
+        document.getElementById("disk-space").innerText = `Used: ${diskSpaceData.used}GB / Total: ${diskSpaceData.total}GB`;
+
+        // Add event listener to update dashboard with new data
+        // This can be replaced with actual API calls or user input
+        setInterval(() => {
+            // Update CPU usage data
+            const newCpuUsage = Math.floor(Math.random() * 100);
+            document.getElementById("cpu-usage").innerText = `CPU Usage: ${newCpuUsage}%`;
+
+            // Update memory usage data
+            const newMemoryUsage = Math.floor(Math.random() * 100);
+            document.getElementById("memory-usage").innerText = `Memory Usage: ${newMemoryUsage}%`;
+
+            // Update disk space data
+            const newDiskSpace = {
+                used: Math.floor(Math.random() * 300),
+                total: 500
+            };
+            document.getElementById("disk-space").innerText = `Used: ${newDiskSpace.used}GB / Total: ${newDiskSpace.total}GB`;
+        }, 5000);
+    </script>
+</body>
+</html>
